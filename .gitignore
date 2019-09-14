@@ -47,6 +47,9 @@ typings/
 # TypeScript cache
 *.tsbuildinfo
 
+# JavaScript Dist
+dist/ 
+
 # Optional npm cache directory
 .npm
 
@@ -86,3 +89,5 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+package-lock.json
