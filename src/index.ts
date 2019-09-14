@@ -3,19 +3,17 @@
 import * as bodyParser from "body-parser";
 import express from "express";
 import http from "http";
-import {Routes} from "./routes/routes";
+import routes from "./routes/routes";
 
 const app = express();
 const server = http.createServer(app);
 const port = 3000;
 
-const routePrv: Routes = new Routes();
-
 // Body-Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // Routes
-routePrv.routes(app);
+app.use(routes);
 
 // Start Express Server
 server.listen(port, () => {

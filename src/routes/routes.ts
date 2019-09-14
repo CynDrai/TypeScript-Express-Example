@@ -1,18 +1,16 @@
 "use strict";
 
 import cors from "cors";
-import {Express} from "express";
+import express, {Express} from "express";
+const app: Express = express();
+
+// Import de Rotas
 import testeRoute from "./TesteRoute";
 
-export class Routes {
-  public routes(app: Express): void {
-    // app.route("/").get((req: Request, res: Response) => {
-    //   res.status(200).send(res.req.body); // Envio de Objetos e requisição
-    // });
+// Uso de Rotas
+app.use("/teste", testeRoute);
 
-    app.use("/teste", testeRoute);
+// Habilita o CORS
+app.use(cors());
 
-    // Habilita o CORS
-    app.use(cors());
-  }
-}
+export default app;
