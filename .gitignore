@@ -48,7 +48,7 @@ typings/
 *.tsbuildinfo
 
 # JavaScript Dist
-dist/ 
+dist/
 
 # Optional npm cache directory
 .npm
