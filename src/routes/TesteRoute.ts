@@ -6,5 +6,6 @@ const router: Router = Router();
 
 // Rotas da Entidade
 router.get("/list", controller.list);
+router.get("/findById", controller.findById);
 
 export default router;
