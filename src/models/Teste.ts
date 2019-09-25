@@ -1,6 +1,6 @@
 "use strict";
 
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity({name: "TESTE"})
 export class Teste {

@@ -1,9 +1,9 @@
 "use strict";
 
-import * as bodyParser from "body-parser";
+import { createConnection } from "typeorm";
 import express from "express";
 import http from "http";
-import { createConnection } from "typeorm";
+import * as bodyParser from "body-parser";
 import routes from "./routes/routes";
 
 createConnection().then((connection) => {
@@ -23,5 +23,10 @@ createConnection().then((connection) => {
     // tslint:disable-next-line:no-console
     console.log("API Rodando na porta " + port);
   });
+
+  if (connection.isConnected) {
+    // tslint:disable-next-line:no-console
+    console.log("Banco de Dados Conectado ==> " + connection.driver.database);
+  }
 
 });
