@@ -8,6 +8,6 @@ const router: Router = Router();
 router.put("/createOrUpdate", controller.createOrUpdate);
 router.get("/list", controller.list);
 router.get("/findById/:id", controller.findById);
-router.delete("/:id", controller.deleteEntity)
+router.delete("/:id", controller.deleteEntity);
 
 export default router;

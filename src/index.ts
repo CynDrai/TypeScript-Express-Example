@@ -1,9 +1,9 @@
 "use strict";
 
-import { createConnection } from "typeorm";
+import * as bodyParser from "body-parser";
 import express from "express";
 import http from "http";
-import * as bodyParser from "body-parser";
+import { createConnection } from "typeorm";
 import routes from "./routes/routes";
 
 createConnection().then((connection) => {

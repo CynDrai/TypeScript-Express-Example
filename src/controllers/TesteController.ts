@@ -26,10 +26,10 @@ export async function list(req: Request, res: Response) {
 }
 
 export async function findById(req: Request, res: Response) {
-  
+
   // EntityManager & Result
   const entityManager: Repository<Teste> = getRepository(Teste);
-  const result: Teste = await entityManager.findOne({cdTeste: parseInt(req.params.id)});
+  const result: Teste = await entityManager.findOne({cdTeste: Number(req.params.id)});
 
   res.status(200).send(result);
 }
@@ -38,7 +38,7 @@ export async function deleteEntity(req: Request, res: Response) {
 
   // EntityManager
   const entityManager: Repository<Teste> = getRepository(Teste);
-  await entityManager.delete({cdTeste: parseInt(req.params.id)})
+  await entityManager.delete({cdTeste: Number(req.params.id)});
 
   res.status(204).end();
 }
