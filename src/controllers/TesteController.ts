@@ -7,7 +7,7 @@ import { Teste } from "../models/Teste";
 export async function list(req: Request, res: Response) {
 
   // EntityManager
-  const entity = getRepository(Teste);
+  const entityManager = getRepository(Teste);
 
   // Lógica da Rota Abaixo
   const entityTeste: Teste = new Teste();
@@ -15,7 +15,9 @@ export async function list(req: Request, res: Response) {
   entityTeste.dtTeste = new Date();
 
   // Save da Entidade
-  const result = await entity.save(entityTeste);
+  await entityManager.save(entityTeste);
+
+  const result = await entityManager.find();
 
   res.status(200).send(result);
 }
