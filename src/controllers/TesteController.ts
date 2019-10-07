@@ -20,7 +20,7 @@ export async function list(req: Request, res: Response) {
 
   // EntityManager & Result
   const entityManager: Repository<Teste> = getRepository(Teste);
-  const result: Teste[] = await entityManager.find();
+  const result: Teste[] = await entityManager.find({order: {cdTeste: 'ASC'}});
 
   res.status(200).send(result);
 }
