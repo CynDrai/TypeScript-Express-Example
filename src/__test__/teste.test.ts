@@ -1,8 +1,8 @@
 "use strict";
 
 import request from "supertest";
-import enviroment from "../services/enviroment";
 import { Teste } from "../models/Teste";
+import enviroment from "../services/enviroment";
 
 // Variável utilizada de base
 let globalTeste: Teste = new Teste();
