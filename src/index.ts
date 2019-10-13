@@ -9,8 +9,8 @@ import routes from "./routes/routes";
 createConnection().then((connection) => {
 
   const app = express();
+  const port = normalizePort(process.env.PORT || "3000");
   const server = http.createServer(app);
-  const port = 3000;
 
   // Body-Parser
   app.use(bodyParser.json());
@@ -30,3 +30,14 @@ createConnection().then((connection) => {
   }
 
 });
+
+function normalizePort(val: string) {
+  const port = parseInt(val, 10);
+  if (isNaN(port)) {
+    return val;
+  }
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+}
