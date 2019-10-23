@@ -10,7 +10,11 @@ export async function createOrUpdate(req: Request, res: Response) {
   const entityManager: Repository<Teste> = getRepository(Teste);
 
   const entityTeste: Teste = req.body;
-  entityTeste.dtTeste = new Date(entityTeste.dtTeste);
+  if (!entityTeste.dtTeste) {
+    entityTeste.dtTeste = new Date();
+  } else {
+    entityTeste.dtTeste = new Date(entityTeste.dtTeste);
+  }
   const result: Teste = await entityManager.save(entityTeste);
 
   res.status(200).send(result).end();
